@@ -6,11 +6,11 @@ function MemeGenerator() {
   const [randomImg, setRandomImg] = useState("http://i.imgflip.com/1bij.jpg");
   const [allImages,setAllImages] = useState([]);
   const handleTopText = (e) => {
-      const {name,value} = e.target;
+      const {value} = e.target;
       setTopText(value);
   }
   const handleBottomText = (e) => {
-    const {name,value} = e.target;
+    const {value} = e.target;
     setBottomText(value);
 }
 useEffect(() => {
@@ -25,9 +25,7 @@ useEffect(() => {
 const handleSubmit = (e) => {
     e.preventDefault();
     const randomNum = Math.floor(Math.random()*allImages.length);
-    console.log(randomNum);
     const randomImg = allImages[randomNum].url;
-    console.log(randomImg);
     setRandomImg(randomImg);
 }
   return (
