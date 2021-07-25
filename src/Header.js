@@ -1,15 +1,17 @@
-import React from 'react'
+import React from "react";
 
 function Header() {
-    return (
-        <header>
+  return (
+    <header>
       <img
-        src='http://www.pngall.com/wp-content/uploads/2016/05/Trollface.png'
-        alt='Problem?'
+        src="http://www.pngall.com/wp-content/uploads/2016/05/Trollface.png"
+        alt="Problem?"
       />
-      <h2><p>Meme Generator</p></h2>
+      <h2>
+        <p>Meme Generator</p>
+      </h2>
     </header>
-    )
+  );
 }
 
-export default Header
+export default Header;

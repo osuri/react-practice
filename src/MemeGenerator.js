@@ -4,33 +4,33 @@ function MemeGenerator() {
   const [topText, setTopText] = useState("");
   const [bottomText, setBottomText] = useState("");
   const [randomImg, setRandomImg] = useState("http://i.imgflip.com/1bij.jpg");
-  const [allImages,setAllImages] = useState([]);
+  const [allImages, setAllImages] = useState([]);
   const handleTopText = (e) => {
-      const {value} = e.target;
-      setTopText(value);
-  }
+    const { value } = e.target;
+    setTopText(value);
+  };
   const handleBottomText = (e) => {
-    const {value} = e.target;
+    const { value } = e.target;
     setBottomText(value);
-}
-useEffect(() => {
+  };
+  useEffect(() => {
     fetch("https://api.imgflip.com/get_memes")
-    .then(res=>res.json())
-    .then(res=>{
-       const {memes} = res.data;
-       setAllImages(memes);
-    })
-    .catch(err=>console.log(err))
-}, []);
-const handleSubmit = (e) => {
+      .then((res) => res.json())
+      .then((res) => {
+        const { memes } = res.data;
+        setAllImages(memes);
+      })
+      .catch((err) => console.log(err));
+  }, []);
+  const handleSubmit = (e) => {
     e.preventDefault();
-    const randomNum = Math.floor(Math.random()*allImages.length);
+    const randomNum = Math.floor(Math.random() * allImages.length);
     const randomImg = allImages[randomNum].url;
     setRandomImg(randomImg);
-}
+  };
   return (
     <div className="mainDiv">
-      <form className="form-meme" onSubmit={(e)=>handleSubmit(e)}>
+      <form className="form-meme" onSubmit={(e) => handleSubmit(e)}>
         <input
           type="text"
           name="toptext"
